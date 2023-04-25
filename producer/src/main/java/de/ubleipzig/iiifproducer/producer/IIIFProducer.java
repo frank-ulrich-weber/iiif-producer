@@ -89,10 +89,10 @@ public class IIIFProducer implements ManifestBuilderProcess {
     @Override
     public void setRelated(final TemplateManifest body, final String urn, final String viewId) {
         final ArrayList<String> related = new ArrayList<>();
-        related.add(config.getKatalogUrl() + urn);
+        //related.add(config.getKatalogUrl() + urn);
         related.add(config.getViewerUrl() + viewId);
         related.add(config.getBaseUrl() + viewId + separator + config.getManifestFilename());
-        related.add(config.getBaseUrl() + viewId + separator + config.getDfgFilename());
+       // related.add(config.getBaseUrl() + viewId + separator + config.getDfgFilename());
         body.setRelated(related);
     }
 
@@ -126,8 +126,9 @@ public class IIIFProducer implements ManifestBuilderProcess {
 
         final MetsAccessor mets = new MetsImpl(this.config);
         final IRIBuilder iriBuilder = new IRIBuilder(this.config);
-        final Integer viewIdInput = Integer.valueOf(config.getViewId());
-        final String viewId = format("%010d", viewIdInput);
+        //final Integer viewIdInput = Integer.valueOf(config.getViewId());
+        //final String viewId = format("%010d", viewIdInput);
+        final String viewId = config.getViewId();
         final String resourceContext = config.getResourceContext();
         final String imageServiceContext = iriBuilder.buildImageServiceContext(viewId);
         final String canvasContext = config.getCanvasContext();
@@ -139,10 +140,13 @@ public class IIIFProducer implements ManifestBuilderProcess {
         mets.setAttribution(manifest);
         mets.setLogo(manifest);
         final Boolean isManuscript = mets.getMtype();
+        final Boolean isAltkarte = mets.getAtype();
 
         if (isManuscript) {
             mets.setHandschriftMetadata(manifest);
-        } else {
+        } else if (isAltkarte) {
+        	mets.setAltkarteMetadata(manifest);        
+    	} else {
             mets.setMetadata(manifest);
         }
 

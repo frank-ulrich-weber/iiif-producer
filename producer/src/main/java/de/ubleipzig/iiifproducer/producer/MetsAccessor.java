@@ -59,6 +59,11 @@ public interface MetsAccessor {
      * @param body TemplateManifest
      */
     void setHandschriftMetadata(TemplateManifest body);
+    
+    /**
+     * @param body TemplateManifest
+     */
+    void setAltkarteMetadata(TemplateManifest body);
 
     /**
      * @param body TemplateManifest
@@ -107,6 +112,11 @@ public interface MetsAccessor {
      * @return String
      */
     Boolean getMtype();
+    
+    /**
+     * @return String
+     */
+    Boolean getAtype();
 
     /**
      * @return String

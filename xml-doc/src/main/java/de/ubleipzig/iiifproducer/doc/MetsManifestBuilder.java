@@ -138,6 +138,14 @@ public final class MetsManifestBuilder {
 
     /**
      * @param mets MetsData
+     * @return String
+     */
+    public static Boolean isAltkarte(final MetsData mets) {
+        return mets.isAltkarte();
+    }
+
+    /**
+     * @param mets MetsData
      * @param idType String
      * @return String
      */
@@ -207,6 +215,70 @@ public final class MetsManifestBuilder {
      */
     public static String getDateCreated(final MetsData mets) {
         return mets.getDateCreated().orElse("").trim();
+    }
+    
+    /**
+     * @param mets MetsData
+     * @return String
+     */
+    public static String getDateIssued(final MetsData mets) {
+        return mets.getDateIssued().orElse("").trim();
+    }
+    
+    /**
+     * @param mets MetsData
+     * @return String
+     */
+    public static String getScale(final MetsData mets) {
+        return mets.getScale().orElse("").trim();
+    }
+    
+    /**
+     * @param mets MetsData
+     * @return String
+     */
+    public static String getLanguage(final MetsData mets) {
+        return mets.getLanguage().orElse("").trim();
+    }
+    
+    /**
+     * @param mets MetsData
+     * @return String
+     */
+    public static String getLicense(final MetsData mets) {
+        return mets.getLicense().orElse("").trim();
+    }
+    
+    /**
+     * @param mets MetsData
+     * @return String
+     */
+    public static String getReference(final MetsData mets) {
+        return mets.getReference().orElse("").trim();
+    }
+
+    /**
+     * @param mets MetsData
+     * @return String
+     */
+    public static String getTechnique(final MetsData mets) {
+        return mets.getTechnique().orElse("").trim();
+    }
+    
+    /**
+     * @param mets MetsData
+     * @return List
+     */
+    public static List<String> getExtentAltkarte(final MetsData mets) {
+        return mets.getExtentAltkarte();
+    }
+    
+    /**
+     * @param mets MetsData
+     * @return List
+     */
+    public static List<String> getCoordinates(final MetsData mets) {
+        return mets.getCoordinates();
     }
 
     /**
