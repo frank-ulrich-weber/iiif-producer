@@ -162,9 +162,9 @@ public class MetsImpl implements MetsAccessor {
     public List<String> getCanvases(final String logical) {
         final IRIBuilder iri = new IRIBuilder(this.config);
         final List<String> canvases = new ArrayList<>();
-        if(xlinkmap.get(logical) != null)
-        {
-            final List<String> physicals = xlinkmap.get(logical).stream().map(MetsData.Xlink::getXLinkTo).collect(toList());
+        if (xlinkmap.get(logical) != null) {
+            final List<String> physicals;
+            physicals = xlinkmap.get(logical).stream().map(MetsData.Xlink::getXLinkTo).collect(toList());
             physicals.forEach(physical -> {
                 canvases.add(iri.buildCanvasIRIfromPhysical(physical));
             });
