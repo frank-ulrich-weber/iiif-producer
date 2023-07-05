@@ -41,8 +41,8 @@ import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getPhysicalDivs;
 import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getTopLogicals;
 import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getVolumePartTitleOrPartNumber;
 import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getXlinks;
-import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.isManuscript;
 import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.isAltkarte;
+import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.isManuscript;
 import static de.ubleipzig.iiifproducer.doc.ResourceLoader.getMets;
 import static java.io.File.separator;
 import static java.util.Collections.synchronizedList;
@@ -51,8 +51,8 @@ import static java.util.Comparator.naturalOrder;
 import static java.util.stream.Collectors.groupingBy;
 import static java.util.stream.Collectors.toList;
 
-import de.ubleipzig.iiifproducer.doc.ManuscriptMetadata;
 import de.ubleipzig.iiifproducer.doc.AltkarteMetadata;
+import de.ubleipzig.iiifproducer.doc.ManuscriptMetadata;
 import de.ubleipzig.iiifproducer.doc.MetsData;
 import de.ubleipzig.iiifproducer.doc.StandardMetadata;
 import de.ubleipzig.iiifproducer.template.TemplateManifest;
@@ -255,7 +255,7 @@ public class MetsImpl implements MetsAccessor {
     public Boolean getMtype() {
         return isManuscript(mets);
     }
-    
+
     @Override
     public Boolean getAtype() {
         return isAltkarte(mets);

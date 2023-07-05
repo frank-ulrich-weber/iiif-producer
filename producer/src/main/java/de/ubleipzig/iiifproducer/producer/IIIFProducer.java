@@ -145,8 +145,8 @@ public class IIIFProducer implements ManifestBuilderProcess {
         if (isManuscript) {
             mets.setHandschriftMetadata(manifest);
         } else if (isAltkarte) {
-        	mets.setAltkarteMetadata(manifest);        
-    	} else {
+            mets.setAltkarteMetadata(manifest);
+        } else {
             mets.setMetadata(manifest);
         }
 
@@ -182,9 +182,9 @@ public class IIIFProducer implements ManifestBuilderProcess {
             resource.setResourceHeight(height);
 
             //canvasId = resourceId
-            final String canvasIdString = resourceContext + canvasContext + separator + resourceFileId;
+            final String canvasIdString = resourceContext + canvasContext + '/' + resourceFileId;
             final String resourceIdString =
-                    resourceContext + separator + resourceFileId + ".jpg";
+                    resourceContext + '/' + resourceFileId + ".jpg";
             //cast canvas as IRI (failsafe)
             final IRI canvasIri = iriBuilder.buildCanvasIRI(canvasIdString);
             //set Canvas Id

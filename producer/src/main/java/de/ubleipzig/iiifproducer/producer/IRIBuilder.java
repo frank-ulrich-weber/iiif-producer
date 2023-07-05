@@ -18,7 +18,6 @@
 
 package de.ubleipzig.iiifproducer.producer;
 
-import static java.io.File.separator;
 import static java.lang.Integer.parseInt;
 import static java.lang.Integer.valueOf;
 import static java.lang.String.format;
@@ -70,7 +69,7 @@ public final class IRIBuilder {
      */
     public IRI buildServiceIRI(final String imageServiceContext, final String resourceIdString) {
         return rdf.createIRI(
-                imageServiceContext + separator + resourceIdString + config.getImageServiceFileExtension());
+                imageServiceContext + '/' + resourceIdString + config.getImageServiceFileExtension());
     }
 
     /**
@@ -78,17 +77,17 @@ public final class IRIBuilder {
      * @return String
      */
     public String buildImageServiceContext(final String viewId) {
-    	 if (config.getIsUBLImageService()) {
-	    	final int viewIdInt = parseInt(viewId);
-	        final String v = format("%010d", viewIdInt);
-	        final String imageDirPrefix = config.getImageServiceImageDirPrefix();
-	        final int part1 = parseInt(v.substring(0,4));
-	        final String first = format("%04d", part1);
-	        final int part2 = parseInt(v.substring(5,8));
-	        final String second = format("%04d", part2);
-            return config.getImageServiceBaseUrl() + imageDirPrefix + first + separator + second + separator + v;
+        if (config.getIsUBLImageService()) {
+            final int viewIdInt = parseInt(viewId);
+            final String v = format("%010d", viewIdInt);
+            final String imageDirPrefix = config.getImageServiceImageDirPrefix();
+            final int part1 = parseInt(v.substring(0,4));
+            final String first = format("%04d", part1);
+            final int part2 = parseInt(v.substring(5,8));
+            final String second = format("%04d", part2);
+            return config.getImageServiceBaseUrl() + imageDirPrefix + first + '/' + second + '/' + v;
         } else {
-            return config.getImageServiceBaseUrl() + viewId + separator + config.getImageServiceImageDirPrefix();
+            return config.getImageServiceBaseUrl() + viewId + '/' + config.getImageServiceImageDirPrefix();
         }
     }
 

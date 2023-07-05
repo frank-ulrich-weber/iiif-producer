@@ -59,7 +59,7 @@ public interface MetsAccessor {
      * @param body TemplateManifest
      */
     void setHandschriftMetadata(TemplateManifest body);
-    
+
     /**
      * @param body TemplateManifest
      */
@@ -112,7 +112,7 @@ public interface MetsAccessor {
      * @return String
      */
     Boolean getMtype();
-    
+
     /**
      * @return String
      */

@@ -67,7 +67,7 @@ public interface MetsData {
      */
     @XBRead("boolean(//*[local-name()='typeOfResource'][@manuscript='yes'])")
     Boolean isManuscript();
-    
+
     /**
      * @return String
      */
@@ -122,7 +122,7 @@ public interface MetsData {
      */
     @XBRead("//*[local-name()='languageTerm'][@type='code']")
     Optional<String> getLanguage();
-    
+
     /**
      * @return Optional
      */
@@ -146,7 +146,7 @@ public interface MetsData {
      */
     @XBRead("//*[local-name()='dateIssued']")
     Optional<String> getDateIssued();
-    
+
     /**
      * @return String
      */
@@ -219,7 +219,7 @@ public interface MetsData {
      */
     @XBRead("//*[local-name()='extent']")
     Optional<String> getPhysState();
-    
+
     /**
      * @return List
      */
@@ -230,8 +230,8 @@ public interface MetsData {
      * @return String
      */
     @XBRead("//*[local-name()='scale']")
-    Optional<String> getScale();    
-    
+    Optional<String> getScale();
+
     /**
      * @return List
      */
@@ -243,19 +243,19 @@ public interface MetsData {
      */
     @XBRead("//*[local-name()='license']")
     Optional<String> getLicense();
-    
+
     /**
      * @return List
      */
     @XBRead("//*[local-name()='reference']")
     Optional<String> getReference();
-    
+
     /**
      * @return List
      */
     @XBRead("//*[local-name()='technique']")
     Optional<String> getTechnique();
-    
+
     /**
      * @return List
      */

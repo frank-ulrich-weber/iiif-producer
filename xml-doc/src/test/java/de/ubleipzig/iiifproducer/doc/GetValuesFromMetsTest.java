@@ -56,7 +56,7 @@ class GetValuesFromMetsTest {
     void testGetTitle() {
         final MetsData mets = getMets(sourceFile);
         final String id = getManifestTitle(mets);
-        assertEquals(id, "Leipzig, Universit√§tsbibliothek Leipzig, Ms 187");
+        assertEquals(id, "Leipzig, Universit‰tsbibliothek Leipzig, Ms 187");
     }
 
     @Test

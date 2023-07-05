@@ -18,28 +18,27 @@
 
 package de.ubleipzig.iiifproducer.doc;
 
-import static de.ubleipzig.iiifproducer.doc.MetsConstants.GOOBI_TYPE;
-import static de.ubleipzig.iiifproducer.doc.MetsConstants.METS_PARENT_LOGICAL_ID;
-import static de.ubleipzig.iiifproducer.doc.MetsConstants.SWB_TYPE;
-import static de.ubleipzig.iiifproducer.doc.MetsConstants.URN_TYPE;
-import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getManifestTitle;
-import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getSubtitle;
+//import static de.ubleipzig.iiifproducer.doc.MetsConstants.GOOBI_TYPE;
+//import static de.ubleipzig.iiifproducer.doc.MetsConstants.METS_PARENT_LOGICAL_ID;
+//import static de.ubleipzig.iiifproducer.doc.MetsConstants.SWB_TYPE;
+//import static de.ubleipzig.iiifproducer.doc.MetsConstants.URN_TYPE;
 import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getAuthor;
+import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getCallNumber;
+import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getCoordinates;
+import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getDateIssued;
+import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getExtentAltkarte;
+import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getLanguage;
+import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getLicense;
+import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getManifestTitle;
+import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getManuscriptIdByType;
+import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getNotesByType;
+import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getOwner;
 import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getPlace;
 import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getPublisher;
-import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getDateIssued;
-import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getScale;
-import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getTechnique;
-import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getExtentAltkarte;
-import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getCoordinates;
-import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getLanguage;
-import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getNotesByType;
-import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getCallNumber;
-import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getLicense;
-import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getManuscriptIdByType;
-import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getOwner;
-//import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getLogicalType;
 import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getReference;
+import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getScale;
+import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getSubtitle;
+import static de.ubleipzig.iiifproducer.doc.MetsManifestBuilder.getTechnique;
 import static org.slf4j.LoggerFactory.getLogger;
 
 import de.ubleipzig.iiifproducer.template.TemplateMetadata;
@@ -82,13 +81,13 @@ public class AltkarteMetadata {
         meta.add(new TemplateMetadata("Grafische Technik", getTechnique(mets)));
         final List<String> extent = getExtentAltkarte(mets);
         for (String ex : extent) {
-        	meta.add(new TemplateMetadata("Umfang", ex));
-        } 
+            meta.add(new TemplateMetadata("Umfang", ex));
+        }
         meta.add(new TemplateMetadata("Maﬂstab", getScale(mets)));
         final List<String> coordinates = getCoordinates(mets);
         for (String co : coordinates) {
-        	meta.add(new TemplateMetadata("Koordinaten", co));
-        } 
+            meta.add(new TemplateMetadata("Koordinaten", co));
+        }
         meta.add(new TemplateMetadata("Sprache", getLanguage(mets)));
         meta.add(new TemplateMetadata("Weitere Informationen", getNotesByType(mets, "source note")));
         meta.add(new TemplateMetadata("Signatur", getCallNumber(mets)));
